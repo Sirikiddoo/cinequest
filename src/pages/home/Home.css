@@ -1,0 +1,51 @@
+.home {
+    height: 100vh;
+    position: relative;
+}
+
+.home-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.dune-image {
+    width: 1440px;
+    height: 478px;
+    flex-shrink: 0;
+    border: black;
+    filter: blur(2px);
+    display: block;
+}
+
+.website-info {
+    position: absolute;
+    width: 600px;
+    bottom: 5%; /* Adjust this value to control vertical positioning */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    text-align: center; /* Center align text */
+    padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.website-info-text {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 30px;
+}
+
+.home-bottom {
+    width: 1210px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.movie-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}

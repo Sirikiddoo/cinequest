@@ -13,11 +13,11 @@ function Profile() {
                 </div>
                 <div>
                     <article>
-                        <img src={}/>
+                        <p>img</p>
                         <h3>Watchlist</h3>
                     </article>
                     <article>
-                        <img src={}/>
+                        <p>img</p>
                         <h3>Favorites</h3>
                     </article>
                 </div>
