@@ -1,0 +1,11 @@
+.watchlist {
+    display: flex;
+    flex-direction: column;
+    width: 1210px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.watchlist-title {
+    padding: 20px 20px 20px 50px;
+}

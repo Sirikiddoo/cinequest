@@ -41,6 +41,7 @@ body {
   background-color: var(--color-tertiary);
   color: var(--color-white);
   line-height: 1.6;
+  max-width: inherit;
 }
 
 h2 {
