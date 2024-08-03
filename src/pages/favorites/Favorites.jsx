@@ -6,7 +6,7 @@ import React from "react";
 function Favorites() {
     return (
         <div>
-            {Header}
+            <Header />
             <section className="favorites">
                 <h2 className="favorites-title">Favorites</h2>
                 <div className="movie-cards">

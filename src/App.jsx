@@ -16,7 +16,6 @@ import Header from "./components/header/Header.jsx";
 function App() {
     return (
         <>
-            <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/sign-in" element={<SignIn />} />

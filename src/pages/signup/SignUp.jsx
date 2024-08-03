@@ -4,17 +4,21 @@ import './SignUp.css'
 function SignUp() {
     return (
         <div>
-            <section>
-                <h2>SIGN UP</h2>
-                <h2>LOG IN</h2>
-                <form>
-                    <input type="text" placeholder="username"></input>
-                    <input type="email" placeholder="email"></input>
-                    <input type="password" placeholder="password"></input>
+            <section className="sign-up-container">
+                <div className="container-text">
+                <h2 className="text-item-left">SIGN UP</h2>
+                <h2 className="text-item-right">LOG IN</h2>
+                </div>
+                <form className="sign-up-form">
+                    <input type="text" placeholder="Username"></input>
+                    <input type="email" placeholder="Email"></input>
+                    <input type="password" placeholder="Password"></input>
                     <button>Join</button>
                 </form>
-                <p>Already a user?</p>
+                <div className="log-in-text">
+                <p className="text-left">Already a user?</p>
                 <navlink to="/signin">LOG IN</navlink>
+                </div>
             </section>
         </div>
     );

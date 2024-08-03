@@ -5,7 +5,7 @@ import React from "react";
 function Library() {
     return (
         <div>
-            {Header}
+            <Header />
             <section className="library">
                 <h2 className="library-title">Library</h2>
                 <div className="movie-cards">

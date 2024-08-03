@@ -2,10 +2,12 @@ import React from 'react';
 import './Home.css';
 import dune from '../../assets/images/cropped-1920-1080-1314205.jpeg';
 import MovieCard from "../../components/moviecard/MovieCard.jsx";
+import Header from "../../components/header/Header.jsx";
 
 function Home() {
     return (
         <div className="home">
+            <Header />
             <section className="home-top">
                 <img src={dune} alt="Dune film image" className="dune-image"/>
                 <div className="website-info">

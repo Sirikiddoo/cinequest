@@ -6,7 +6,7 @@ import React from "react";
 function Watchlist() {
     return (
         <div>
-            {Header}
+            <Header />
             <section className="watchlist">
                 <h2 className="watchlist-title">Watchlist</h2>
                 <div className="movie-cards">

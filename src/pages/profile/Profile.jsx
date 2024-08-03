@@ -1,10 +1,11 @@
 import './Profile.css'
 import Header from "../../components/header/Header.jsx";
+import React from "react";
 
 function Profile() {
     return (
         <div>
-            {Header}
+            <Header />
             <section>
                 <h2>Profile</h2>
                 <div>

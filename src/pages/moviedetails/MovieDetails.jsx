@@ -1,10 +1,11 @@
 import './MovieDetails.css'
 import Header from "../../components/header/Header.jsx";
+import React from "react";
 
 function MovieDetails() {
     return (
         <div>
-            {Header}
+            <Header />
             <section>
                 <div>movie card</div>
                 <div>
