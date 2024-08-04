@@ -1,4 +1,4 @@
-body {
+.sign-up {
     background: var(--color-tertiary);
     display: flex;
     justify-content: center;
@@ -30,26 +30,43 @@ body {
     text-align: center;
 }
 
+.text-item-right {
+    text-decoration: underline;
+}
+
 .sign-up-form {
     display: flex;
     flex-direction: column;
     flex: 1;
     margin-top: 25px;
     gap: 50px;
-    margin-bottom: -20px;
+    margin-bottom: 5px;
+    align-items: center;
 }
 
-.sign-up-form input, .sign-up-form button {
-    padding: 10px;
-    align-content: flex-end;
-    border-radius: 20px;
-    font-size: 16px;
-    border: none;
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
 }
 
 .sign-up-form input {
+    padding: 10px 10px 10px 40px;
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    outline: none;
     width: 480px;
-    align-self: center;
 }
 
 .sign-up-form button {
@@ -60,7 +77,8 @@ body {
     background-color: var(--color-secondary);
     color: var(--color-white);
     border-radius: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
+    border: none;
 }
 
 .log-in-text {
@@ -73,3 +91,24 @@ body {
 .text-left {
     padding-right: 10px;
 }
+
+navlink {
+    text-decoration: underline;
+}
+
+.home-button-container {
+    text-align: end;
+    margin-top: 20px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--color-white);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+
