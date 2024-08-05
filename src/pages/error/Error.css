@@ -1,0 +1,52 @@
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.error-container h1 {
+    font-size: 250px;
+    font-weight: bold;
+    background-image: url("https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2xpZ2h0LXllYXIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=");
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.error-container h3 {
+    font-size: 30px;
+}
+
+.error-container p {
+    max-width: 420px;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.error-container button {
+    width: 180px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    align-self: center;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: 30px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px -5px var(--color-primary);
+    border: none;
+    cursor: pointer;
+}

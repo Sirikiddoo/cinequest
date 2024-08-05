@@ -1,10 +1,15 @@
 import './Error.css'
 
+
 function Error() {
     return (
-        <div>
-            <h1>404</h1>
-            <p>Page not found</p>
+        <div className="error-page">
+            <div className="error-container">
+            <h1>Oops!</h1>
+            <h3>404 - Page not found</h3>
+            <p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+            <button>GO TO HOMEPAGE</button>
+            </div>
         </div>
     );
 }
