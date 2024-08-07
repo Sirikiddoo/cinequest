@@ -1,5 +1,4 @@
 .sign-in {
-    background: var(--color-tertiary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +12,7 @@
     width: 700px;
     height: 600px;
     padding: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--color-primary);
     border-radius: 30px;
     position: relative;

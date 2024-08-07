@@ -1,0 +1,61 @@
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.detail-page-top {
+    display: flex;
+    align-items: flex-start;
+    width: 1120px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+    gap: 10px;
+}
+
+.movie-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.movie-name {
+    font-size: 38px;
+}
+
+.movie-year {
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.movie-director {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.movie-plot {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+.detail-page-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 1210px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.detail-discover {
+    padding: 20px 20px 20px 50px;
+    font-size: 32px;
+}

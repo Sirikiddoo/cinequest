@@ -5,7 +5,6 @@ import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
 
-
 function SignIn() {
     return (
         <div className="sign-in">
@@ -17,11 +16,11 @@ function SignIn() {
                 <form className="sign-in-form">
                     <div className="input-container">
                         <img src={emailIcon} alt="Email Icon" className="input-icon"></img>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" placeholder="Email"/>
                     </div>
                     <div className="input-container">
                         <img src={passwordIcon} alt="Password Icon" className="input-icon"></img>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password"/>
                     </div>
                     <button>Continue</button>
                 </form>
