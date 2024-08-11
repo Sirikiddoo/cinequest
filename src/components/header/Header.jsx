@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
-import search from '../../assets/images/search.png';
+import SearchBar from "../searchbar/SearchBar.jsx";
 
 function Header() {
     return (
@@ -11,10 +11,7 @@ function Header() {
                 <NavLink to="/" className="nav-title">CineQuest</NavLink>
 
                 {/* Search bar */}
-                <div className="search-container">
-                    <input type="search" className="search-bar" placeholder="Search film..." />
-                    <img src={search} alt="Search icon" className="search-icon"/>
-                </div>
+                <SearchBar />
 
                 {/* Navigation links */}
                 <div className="nav-links">

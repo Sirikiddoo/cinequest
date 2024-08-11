@@ -10,4 +10,25 @@ main {
   padding: 20px;
 }
 
+/* Responsiveness */
+
+@media (max-width: 768px) {
+  .App {
+    /* Styles for tablets and smaller devices */
+  }
+
+  main {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    /* Styles for smartphones */
+  }
+
+  main {
+    padding: 5px;
+  }
+}
 

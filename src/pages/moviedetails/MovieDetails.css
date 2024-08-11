@@ -2,23 +2,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 80px;
     padding-top: 40px;
+    box-sizing: border-box;
 }
 
 .detail-page-top {
     display: flex;
     align-items: flex-start;
-    width: 1120px;
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
     padding: 10px;
+    gap: 20px;
 }
 
 .movie-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 30px;
-    gap: 10px;
 }
 
 .movie-name-container {
@@ -28,12 +30,11 @@
 }
 
 .movie-name {
-    font-size: 38px;
+    font-size: 2rem;
 }
 
 .movie-year {
-    font-size: 18px;
-    margin-left: 15px;
+    font-size: 1rem;
 }
 
 .movie-director {
@@ -56,6 +57,46 @@
 }
 
 .detail-discover {
-    padding: 20px 20px 20px 50px;
-    font-size: 32px;
+    padding: 20px 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .movie-name {
+        font-size: 2rem;
+    }
+
+    .movie-year {
+        font-size: 1rem;
+    }
+
+    .movie-director,
+    .movie-plot {
+        font-size: 1rem;
+    }
+
+    .detail-discover {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-name {
+        font-size: 1.5rem;
+    }
+
+    .movie-year {
+        font-size: 0.875rem;
+    }
+
+    .movie-director,
+    .movie-plot {
+        font-size: 0.875rem;
+    }
+
+    .detail-discover {
+        font-size: 1.25rem;
+    }
 }

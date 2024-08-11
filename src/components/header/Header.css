@@ -4,7 +4,12 @@
     display: flex;
     align-items: center;
     width: 100%;
-    box-shadow: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 80px;
 }
 
 .navbar {
@@ -12,12 +17,14 @@
     align-items: center;
     width: 100%;
     max-width: 1400px;
+    margin: 0 auto;
+    justify-content: space-between;
 }
 
 .nav-title {
     color: var(--color-white);
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 1rem;
     text-decoration: none;
     font-size: 22px;
     transition: color 0.3s ease;
@@ -25,40 +32,6 @@
 
 .nav-title:hover {
     color: var(--color-secondary);
-}
-
-.search-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.search-bar {
-    font-family: Ubuntu, sans-serif;
-    font-style: normal;
-    width: 100%;
-    max-width: 450px;
-    padding: 0.5rem 2rem;
-    border: 1px solid var(--color-white);
-    border-radius: 20px;
-    background-color: var(--color-white);
-    color: darkgrey;
-    font-size: 14px;
-}
-
-.search-bar::placeholder {
-    color: var(--color-black);
-}
-
-.search-icon {
-    position: absolute;
-    right: 250px;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust to center */
-    width: 20px; /* Adjust size as needed */
-    height: 20px; /* Adjust size as needed */
-    pointer-events: none; /* Prevents the icon from capturing clicks */
 }
 
 .nav-links {
@@ -81,4 +54,36 @@
 
 .active-nav-item {
     border-bottom: 2px solid var(--color-secondary);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .search-bar {
+        max-width: 300px;
+        font-size: 12px;
+    }
+
+    .search-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-title {
+        font-size: 18px;
+    }
+
+    .search-bar {
+        max-width: 250px;
+    }
+
+    .search-icon {
+        width: 16px;
+        height: 16px;
+    }
 }

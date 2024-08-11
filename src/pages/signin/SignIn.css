@@ -4,13 +4,16 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .sign-in-container {
     display: flex;
     flex-direction: column;
-    width: 700px;
-    height: 600px;
+    width: 100%;
+    max-width: 700px;
+    height: 500px;
     padding: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--color-primary);
@@ -38,8 +41,8 @@
     flex-direction: column;
     flex: 1;
     margin-top: 25px;
-    gap: 50px;
     margin-bottom: 5px;
+    gap: 50px;
     align-items: center;
 }
 
@@ -62,14 +65,16 @@
 .sign-in-form input {
     padding: 10px 10px 10px 40px;
     border-radius: 15px;
-    font-size: 16px;
+    font-size: 1rem;
     border: 1px solid #ccc;
     outline: none;
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
 }
 
 .sign-in-form button {
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     height: 50px;
     font-size: 20px;
     align-self: center;
@@ -85,14 +90,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 10px;
 }
 
 .text-left {
     padding-right: 10px;
-}
-
-navlink {
-    text-decoration: underline;
 }
 
 .home-button-container {
@@ -102,7 +104,7 @@ navlink {
 
 .home-button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--color-white);
     border: none;
     text-decoration: none;
@@ -110,4 +112,57 @@ navlink {
     gap: 8px;
 }
 
+/* Responsiveness */
+@media (max-width: 768px) {
+    .sign-in-container {
+        padding: 30px;
+    }
+
+    .sign-in-form {
+        gap: 15px;
+    }
+
+    .input-container {
+        max-width: 100%;
+    }
+
+    .sign-in-form input {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .sign-in-form button {
+        font-size: 18px;
+        max-width: 150px;
+    }
+
+    .home-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sign-in-container {
+        padding: 20px;
+    }
+
+    .sign-in-form {
+        gap: 10px;
+    }
+
+    .sign-in-form input {
+        font-size: 12px;
+    }
+
+    .sign-in-form button {
+        font-size: 16px;
+        max-width: 120px;
+    }
+
+    .home-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
 

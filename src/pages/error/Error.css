@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 1rem;
 }
 
 .error-container {
@@ -11,28 +12,30 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 50%;
+    width: 90%;
+    max-width: 600px;
 }
 
 .error-container h1 {
-    font-size: 250px;
+    font-size: 15rem;
     font-weight: bold;
     background-image: url("https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2xpZ2h0LXllYXIuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=");
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    margin: 0;
 }
 
 .error-container h3 {
-    font-size: 30px;
+    font-size: 2rem;
+    margin: 0.5rem 0;
 }
 
 .error-container p {
-    max-width: 420px;
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    max-width: 100%;
+    font-size: 1rem;
+    margin: 1rem 0;
 }
 
 .error-container button {
@@ -40,13 +43,54 @@
     height: 50px;
     font-size: 14px;
     font-weight: bold;
-    font-style: normal;
-    align-self: center;
     background-color: var(--color-secondary);
     color: var(--color-white);
     border-radius: 30px;
-    margin-top: 20px;
+    margin-top: 1rem;
     box-shadow: 0 4px 15px -5px var(--color-primary);
     border: none;
     cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .error-container h1 {
+        font-size: 8rem;
+    }
+
+    .error-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .error-container p {
+        font-size: 0.875rem;
+        max-width: 100%;
+    }
+
+    .error-container button {
+        width: 150px;
+        height: 45px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-container h1 {
+        font-size: 6rem;
+    }
+
+    .error-container h3 {
+        font-size: 1.25rem;
+    }
+
+    .error-container p {
+        font-size: 0.75rem;
+        max-width: 100%;
+    }
+
+    .error-container button {
+        width: 120px;
+        height: 40px;
+        font-size: 0.6875rem;
+    }
 }

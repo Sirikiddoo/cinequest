@@ -1,11 +1,50 @@
 .favorites {
     display: flex;
     flex-direction: column;
-    width: 1210px;
-    margin: 0 auto;
-    padding: 10px;
+    width: 90%;
+    max-width: 1210px;
+    margin: 80px auto 0;
+    padding: 20px 10px;
+    box-sizing: border-box;
 }
 
 .favorites-title {
-    padding: 20px 20px 20px 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Movie card container styling */
+.movie-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .favorites-title {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .movie-cards {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-title {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .movie-cards {
+        gap: 10px;
+    }
 }

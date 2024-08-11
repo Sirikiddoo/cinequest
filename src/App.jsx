@@ -11,7 +11,6 @@ import Favorites from './pages/favorites/Favorites.jsx';
 import Error from './pages/error/Error.jsx';
 import MovieDetails from './pages/moviedetails/MovieDetails.jsx';
 import SearchResults from './pages/searchresults/SearchResults.jsx';
-import Header from "./components/header/Header.jsx";
 
 function App() {
     return (

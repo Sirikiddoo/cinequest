@@ -3,11 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 120px;
+    box-sizing: border-box;
 }
 
 .profile-container {
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -16,17 +18,24 @@
     border-radius: 30px;
     background-color: var(--color-primary);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 .profile-content {
     text-align: center;
-    width: 370px;
+    width: 100%;
+    max-width: 370px;
     height: 500px;
-    border: black 1px solid;
+    box-shadow: 0 4px 35px 5px var(--color-secondary);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .profile-content h2 {
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .user-data {
@@ -35,10 +44,32 @@
 }
 
 .user-data p {
-    width: 370px;
-    height: 60px;
-    border: black 1px solid;
+    display: flex;
+    align-items: center;
+    width: 320px;
+    height: 40px;
+    border-radius: 30px;
     margin-bottom: 30px;
+    background-color: var(--color-secondary);
+    color: #FFFFFF;
+    padding: 0 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.profile-user, .profile-email {
+    position: relative;
+}
+
+.user-icon, .email-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    pointer-events: none;
 }
 
 .user-links {
@@ -51,7 +82,8 @@
 .user-watchlist, .user-faves {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     border-radius: 30px;
     background-color: var(--color-secondary);
@@ -69,4 +101,67 @@
     height: 60px;
     align-self: center;
     cursor: pointer;
+    margin-bottom: 30px;
+    filter: invert(1);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .profile-content {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .user-data p {
+        width: 100%;
+        max-width: 280px;
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .user-links {
+        gap: 10px;
+    }
+
+    .user-watchlist, .user-faves {
+        width: 120px;
+        height: 150px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .profile-content {
+        max-width: 100%;
+    }
+
+    .user-data p {
+        max-width: 240px;
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .user-watchlist, .user-faves {
+        width: 100px;
+        height: 130px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 35px;
+    }
 }

@@ -1,0 +1,40 @@
+/* SearchBar.css */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #b9c0c9;
+    background-color: transparent;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #FFFFFF; /* Set the input text color to white */
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-bar::placeholder {
+    color: #FFFFFF; /* Set the placeholder text color to white */
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}

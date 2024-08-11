@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import dune from '../../assets/images/cropped-1920-1080-1314205.jpeg';
+import dune from '../../assets/images/stretched-2880-1800-1314205.jpeg';
 import MovieCard from "../../components/moviecard/MovieCard.jsx";
 import Header from "../../components/header/Header.jsx";
 
@@ -11,9 +11,11 @@ function Home() {
             <section className="home-top">
                 <img src={dune} alt="Dune film image" className="dune-image"/>
                 <div className="website-info">
-                    <h1 className="website-info-text">Discover your next favorite film.
-                        Curate your watchlist and favorites.
-                        Catch up on the latest hits.</h1>
+                    <h1 className="website-info-text">
+                        Discover your next favorite film.<br />
+                        Curate your watchlist and favorites.<br />
+                        Catch up on the latest hits.<br />
+                    </h1>
                 </div>
             </section>
             <section className="home-bottom">

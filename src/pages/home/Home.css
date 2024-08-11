@@ -1,59 +1,109 @@
 .home {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
 .home-top {
+    position: relative;
+    width: 100%;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: flex-end;
 }
 
 .dune-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 478px;
-    flex-shrink: 0;
-    border: black;
-    filter: blur(2px);
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px);
+    z-index: -1;
 }
 
 .website-info {
-    position: absolute;
-    width: 600px;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    width: 80%;
+    max-width: 600px;
     text-align: center;
-    padding: 10px;
+    color: white;
+    padding: 5px;
+    z-index: 1;
 }
 
 .website-info-text {
-    font-size: 28px;
-    font-style: normal;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1.3;
-    margin: 30px;
+    margin: 20px;
 }
 
 .home-bottom {
     display: flex;
     flex-direction: column;
-    width: 1210px;
-    margin: 0 auto;
+    width: 100%;
     padding: 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .home-category {
-    padding: 20px 20px 20px 50px;
+    padding: 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .movie-cards {
     display: flex;
     flex-wrap: wrap;
-    max-width: inherit;
     gap: 25px;
     justify-content: center;
     padding-bottom: 40px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .home-top {
+        height: 50vh;
+    }
+
+    .website-info {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .website-info-text {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    .home-category {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-top {
+        height: 40vh;
+    }
+
+    .website-info {
+        width: 95%;
+    }
+
+    .website-info-text {
+        font-size: 18px;
+        margin: 10px;
+    }
+
+    .home-category {
+        font-size: 18px;
+    }
 }
