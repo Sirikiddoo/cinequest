@@ -4,7 +4,13 @@ import { API_KEY, API_URL, IMAGE_PATH } from '../constants/Constants.jsx';
 // Fetch popular movies
 export const fetchPopularMovies = async () => {
     try {
-        const response = await axios.get(`${API_URL}/movie/popular?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/movie/popular`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+            }
+        });
+        console.log('Popular movies data:', response.data.results);
         return response.data.results;
     } catch (error) {
         console.error('Error fetching popular movies:', error);

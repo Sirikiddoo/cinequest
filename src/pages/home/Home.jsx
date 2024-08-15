@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 import dune from '../../assets/images/stretched-2880-1800-1314205.jpeg';
-import MovieCard from "../../components/moviecard/MovieCard.jsx";
 import Header from "../../components/header/Header.jsx";
+import MovieCard from "../../components/moviecard/MovieCard.jsx"; // Import the MovieCard component
+import { fetchPopularMovies } from '../../helpers/Api.jsx';
 
-function Home() {
+const Home = () => {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        const getPopularMovies = async () => {
+            try {
+                const moviesData = await fetchPopularMovies();
+                setMovies(moviesData.slice(0, 5)); // Fetch and limit to 5 movies
+            } catch (error) {
+                console.error('Error fetching popular movies:', error);
+            }
+        };
+
+        getPopularMovies();
+    }, []);
+
     return (
         <div className="home">
-            <Header/>
+            <Header />
             <section className="home-top">
-                <img src={dune} alt="Dune film image" className="dune-image"/>
+                <img src={dune} alt="Dune film image" className="dune-image" />
                 <div className="website-info">
                     <h1 className="website-info-text">
                         Discover your next favorite film.<br />
@@ -19,17 +35,15 @@ function Home() {
                 </div>
             </section>
             <section className="home-bottom">
-                <h2 className="home-category">Popular films</h2>
+                <h2 className="home-category">Popular Films</h2>
                 <div className="movie-cards">
-                    <MovieCard/>
-                    <MovieCard/>
-                    <MovieCard/>
-                    <MovieCard/>
-                    <MovieCard/>
+                    {movies.map(movie => (
+                        <MovieCard key={movie.id} movie={movie} /> // Render MovieCard for each movie
+                    ))}
                 </div>
             </section>
         </div>
     );
-}
+};
 
 export default Home;

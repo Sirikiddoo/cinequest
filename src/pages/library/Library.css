@@ -1,51 +1,64 @@
 .library {
     display: flex;
     flex-direction: column;
-    width: 90%; /* Use percentage width for better responsiveness */
-    max-width: 1210px; /* Maximum width for larger screens */
+    width: 90%;
+    max-width: 1210px;
     margin: 80px auto 0;
-    padding: 20px 10px; /* Add padding to ensure content is not touching edges */
-    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    padding: 20px 10px;
+    box-sizing: border-box;
 }
 
 .library-title {
-    font-size: 2rem; /* Adjust font size for better readability */
-    font-weight: bold; /* Ensure the title stands out */
+    font-size: 2rem;
+    font-weight: bold;
     text-align: center;
-    padding: 1rem; /* Adjust padding for spacing */
-    margin: 0; /* Remove default margin */
-    margin-bottom: 1rem; /* Ensure space below the title */
+    padding: 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
 }
 
-/* Movie card container styling */
 .movie-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Space between cards */
-    justify-content: center; /* Center the cards */
+    gap: 20px;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #555;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .library-title {
-        font-size: 1.5rem; /* Adjust font size for smaller screens */
-        padding: 0.75rem; /* Adjust padding for smaller screens */
-        margin-bottom: 0.75rem; /* Reduce space below the title */
-    }
-
     .movie-cards {
-        gap: 15px; /* Reduce gap between cards */
+        gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .library-title {
-        font-size: 1.25rem; /* Further reduce font size for small screens */
-        padding: 0.5rem; /* Further reduce padding for small screens */
-        margin-bottom: 0.5rem; /* Further reduce space below the title */
-    }
-
     .movie-cards {
-        gap: 10px; /* Further reduce gap between cards */
+        gap: 10px;
     }
 }

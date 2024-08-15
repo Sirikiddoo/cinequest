@@ -1,28 +1,42 @@
+import React, { useState, useEffect } from 'react';
 import './Library.css';
 import Header from "../../components/header/Header.jsx";
 import MovieCard from "../../components/moviecard/MovieCard.jsx";
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import { fetchPopularMovies } from '../../helpers/Api.jsx';
 
-function Library() {
-    const [trendingMovies, setTrendingMovies] = useState([]);
+const Library = () => {
+    const [movies, setMovies] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        const fetchTrendingMovies = async () => {
+        const getPopularMovies = async () => {
             try {
-                const response = await axios.get('https://api.themoviedb.org/3/trending/movie/week', {
-                    params: {
-                        api_key: 'ab0d5ba967fa1d24e7605770a2c59e05' // Replace with your actual API key
-                    }
-                });
-                setTrendingMovies(response.data.results); // Update state with fetched movies
+                const moviesData = await fetchPopularMovies();
+                setMovies(moviesData);
             } catch (error) {
-                console.error('Error fetching trending movies:', error);
+                console.error('Error fetching popular movies:', error);
             }
         };
 
-        fetchTrendingMovies(); // Fetch data when component mounts
-    }, []); // Empty dependency array means this effect runs once on mount
+        getPopularMovies();
+    }, []);
+
+    const moviesPerPage = 10;
+    const indexOfLastMovie = currentPage * moviesPerPage;
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+    const nextPage = () => {
+        if (currentPage < Math.ceil(movies.length / moviesPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
 
     return (
         <div>
@@ -30,17 +44,17 @@ function Library() {
             <section className="library">
                 <h2 className="library-title">Library</h2>
                 <div className="movie-cards">
-                    {trendingMovies.map(movie => (
-                        <MovieCard
-                            key={movie.id}
-                            posterPath={movie.poster_path}
-                            title={movie.title}
-                        />
+                    {currentMovies.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie} />
                     ))}
+                </div>
+                <div className="pagination">
+                    <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                    <button onClick={nextPage} disabled={currentPage === Math.ceil(movies.length / moviesPerPage)}>Next</button>
                 </div>
             </section>
         </div>
     );
-}
+};
 
 export default Library;
