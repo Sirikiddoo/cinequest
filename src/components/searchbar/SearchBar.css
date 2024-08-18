@@ -14,13 +14,13 @@
     background-color: transparent;
     border-radius: 20px;
     font-size: 16px;
-    color: #FFFFFF; /* Set the input text color to white */
+    color: #FFFFFF;
     outline: none;
     box-sizing: border-box;
 }
 
 .search-bar::placeholder {
-    color: #FFFFFF; /* Set the placeholder text color to white */
+    color: #FFFFFF;
 }
 
 .search-button {

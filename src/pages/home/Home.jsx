@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import dune from '../../assets/images/stretched-2880-1800-1314205.jpeg';
 import Header from "../../components/header/Header.jsx";
-import MovieCard from "../../components/moviecard/MovieCard.jsx"; // Import the MovieCard component
+import MovieCard from "../../components/moviecard/MovieCard.jsx";
 import { fetchPopularMovies } from '../../helpers/Api.jsx';
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
         const getPopularMovies = async () => {
             try {
                 const moviesData = await fetchPopularMovies();
-                setMovies(moviesData.slice(0, 5)); // Fetch and limit to 5 movies
+                setMovies(moviesData.slice(0, 5));
             } catch (error) {
                 console.error('Error fetching popular movies:', error);
             }
@@ -38,7 +38,7 @@ const Home = () => {
                 <h2 className="home-category">Popular Films</h2>
                 <div className="movie-cards">
                     {movies.map(movie => (
-                        <MovieCard key={movie.id} movie={movie} /> // Render MovieCard for each movie
+                        <MovieCard key={movie.id} movie={movie} />
                     ))}
                 </div>
             </section>
