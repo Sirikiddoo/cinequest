@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { API_KEY, API_URL, IMAGE_PATH } from '../constants/Constants.jsx';
+import { API_URL, API_KEY, IMAGE_PATH } from '../config';
+
 
 // Fetch popular movies
 export const fetchPopularMovies = async () => {
