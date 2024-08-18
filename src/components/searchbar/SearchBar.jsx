@@ -1,7 +1,6 @@
 import './SearchBar.css'
 import React from 'react'
 import search from '../../assets/images/search.png';
-
 function SearchBar() {
     return (
         <div className="search-bar-container">

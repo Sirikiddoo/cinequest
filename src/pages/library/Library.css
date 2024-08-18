@@ -50,7 +50,7 @@
     background-color: #555;
 }
 
-/* Responsive adjustments */
+/* Responsiveness */
 @media (max-width: 768px) {
     .movie-cards {
         gap: 15px;

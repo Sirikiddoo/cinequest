@@ -6,7 +6,7 @@ import eye from '../../assets/images/eye.png';
 import { getPosterPath } from '../../helpers/Api.jsx';
 
 const MovieCard = ({ movie }) => {
-    if (!movie) return null; // Return null if no movie data is provided
+    if (!movie) return null;
 
     return (
         <div className="movie-card">

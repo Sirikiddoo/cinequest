@@ -19,21 +19,15 @@ export const fetchPopularMovies = async () => {
     }
 };
 
-// Search movies
-export const searchMovies = async (query) => {
-    try {
-        const response = await axios.get(`${API_URL}/search/movie?api_key=${API_KEY}&query=${query}`);
-        return response.data.results;
-    } catch (error) {
-        console.error('Error searching movies:', error);
-        return [];
-    }
-};
-
 // Fetch movie details
 export const fetchMovieDetails = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/movie/${id}?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/movie/${id}`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+            }
+        });
         return response.data;
     } catch (error) {
         console.error(`Error fetching details for movie ${id}:`, error);
@@ -41,13 +35,31 @@ export const fetchMovieDetails = async (id) => {
     }
 };
 
-// Fetch genre list
-export const fetchGenre = async () => {
+// Fetch movie recommendations
+
+export const fetchMovieRecommendations = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/genre/movie/list?api_key=${API_KEY}`);
-        return response.data.genres;
+        const response = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+            }
+        });
+        return response.data.results;
     } catch (error) {
-        console.error('Error fetching genres:', error);
+        console.error(`Error fetching recommendations for movie ${id}:`, error);
+        return [];
+    }
+};
+
+
+// Search movies
+export const searchMovies = async (query) => {
+    try {
+        const response = await axios.get(`${API_URL}/search/movie?api_key=${API_KEY}&query=${query}`);
+        return response.data.results;
+    } catch (error) {
+        console.error('Error searching movies:', error);
         return [];
     }
 };

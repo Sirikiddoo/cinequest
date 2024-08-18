@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 import SearchBar from "../searchbar/SearchBar.jsx";
 
-function Header() {
+function Header({ onSearch }) {
     return (
         <header className="header">
             <nav className="navbar">
@@ -15,11 +15,21 @@ function Header() {
 
                 {/* Navigation links */}
                 <div className="nav-links">
-                    <NavLink to="/sign-up" className="nav-item" activeClassName="active-nav-item">SIGN UP</NavLink>
-                    <NavLink to="/sign-in" className="nav-item" activeClassName="active-nav-item">LOG IN</NavLink>
-                    <NavLink to="/library" className="nav-item" activeClassName="active-nav-item">FILMS</NavLink>
-                    <NavLink to="/watchlist" className="nav-item" activeClassName="active-nav-item">WATCHLIST</NavLink>
-                    <NavLink to="/favorites" className="nav-item" activeClassName="active-nav-item">FAVORITES</NavLink>
+                    <NavLink to="/sign-up" className={({ isActive }) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
+                        SIGN UP
+                    </NavLink>
+                    <NavLink to="/sign-in" className={({ isActive }) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
+                        LOG IN
+                    </NavLink>
+                    <NavLink to="/library" className={({ isActive }) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
+                        FILMS
+                    </NavLink>
+                    <NavLink to="/watchlist" className={({ isActive }) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
+                        WATCHLIST
+                    </NavLink>
+                    <NavLink to="/favorites" className={({ isActive }) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
+                        FAVORITES
+                    </NavLink>
                 </div>
             </nav>
         </header>
