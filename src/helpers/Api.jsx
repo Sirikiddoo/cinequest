@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { API_URL, API_KEY, IMAGE_PATH } from '../config';
-
+export const API_URL = 'https://api.themoviedb.org/3';
+export const IMAGE_PATH = 'https://image.tmdb.org/t/p/w200';
 
 // Fetch popular movies
 export const fetchPopularMovies = async () => {
     try {
         const response = await axios.get(`${API_URL}/movie/popular`, {
             params: {
-                api_key: API_KEY,
+                api_key: import.meta.env.VITE_API_KEY,
                 language: 'en-US',
             }
         });
@@ -24,7 +24,7 @@ export const fetchMovieDetails = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}`, {
             params: {
-                api_key: API_KEY,
+                api_key: import.meta.env.VITE_API_KEY,
                 language: 'en-US',
             }
         });
@@ -41,25 +41,13 @@ export const fetchMovieRecommendations = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
             params: {
-                api_key: API_KEY,
+                api_key: import.meta.env.VITE_API_KEY,
                 language: 'en-US',
             }
         });
         return response.data.results;
     } catch (error) {
         console.error(`Error fetching recommendations for movie ${id}:`, error);
-        return [];
-    }
-};
-
-
-// Search movies
-export const searchMovies = async (query) => {
-    try {
-        const response = await axios.get(`${API_URL}/search/movie?api_key=${API_KEY}&query=${query}`);
-        return response.data.results;
-    } catch (error) {
-        console.error('Error searching movies:', error);
         return [];
     }
 };

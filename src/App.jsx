@@ -10,6 +10,7 @@ import Watchlist from './pages/watchlist/Watchlist.jsx';
 import Favorites from './pages/favorites/Favorites.jsx';
 import Error from './pages/error/Error.jsx';
 import MovieDetails from './pages/moviedetails/MovieDetails.jsx';
+import SearchResults from "./pages/searchresults/SearchResults.jsx";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/watchlist" element={<Watchlist />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/movie/:id" element={<MovieDetails />} />
+                <Route path="/search-results" element={<SearchResults />} />
                 <Route path="*" element={<Error />} />
             </Routes>
         </>
