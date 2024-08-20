@@ -20,7 +20,7 @@
 .search-movie-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 22px;
     justify-content: space-between;
     align-content: flex-start;
 }
