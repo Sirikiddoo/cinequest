@@ -56,6 +56,26 @@
     border-bottom: 2px solid var(--color-secondary);
 }
 
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-button:hover {
+    color: var(--color-secondary);
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .header {

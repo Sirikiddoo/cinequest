@@ -1,6 +1,7 @@
 import React from 'react';
+import { useContext } from "react";
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Navigate, Routes } from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
 import SignIn from './pages/signin/SignIn.jsx';
 import SignUp from './pages/signup/SignUp.jsx';
@@ -11,15 +12,18 @@ import Favorites from './pages/favorites/Favorites.jsx';
 import Error from './pages/error/Error.jsx';
 import MovieDetails from './pages/moviedetails/MovieDetails.jsx';
 import SearchResults from "./pages/searchresults/SearchResults.jsx";
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+    const { isAuth } = useContext(AuthContext);
+
     return (
         <>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/sign-up" element={<SignUp />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/sign-in"/>} />
                 <Route path="/library" element={<Library />} />
                 <Route path="/watchlist" element={<Watchlist />} />
                 <Route path="/favorites" element={<Favorites />} />

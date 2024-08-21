@@ -1,6 +1,6 @@
 import axios from 'axios';
-export const API_URL = 'https://api.themoviedb.org/3';
-export const IMAGE_PATH = 'https://image.tmdb.org/t/p/w200';
+import { API_URL, IMAGE_PATH } from '../constants/Constants.jsx';
+
 
 // Fetch popular movies
 export const fetchPopularMovies = async () => {
@@ -36,7 +36,6 @@ export const fetchMovieDetails = async (id) => {
 };
 
 // Fetch movie recommendations
-
 export const fetchMovieRecommendations = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
