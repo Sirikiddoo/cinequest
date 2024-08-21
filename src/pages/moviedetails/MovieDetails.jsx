@@ -1,16 +1,17 @@
 import './MovieDetails.css';
 import Header from "../../components/header/Header.jsx";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import MovieCard from "../../components/moviecard/MovieCard.jsx";
-import { fetchMovieDetails, fetchMovieRecommendations } from '../../helpers/api';
-import { useParams } from 'react-router-dom';
+import {fetchMovieDetails, fetchMovieRecommendations, fetchMovieCast} from '../../helpers/Api.jsx';
+import {useParams} from 'react-router-dom';
 
 function MovieDetails() {
     const [movie, setMovie] = useState(null);
     const [recommendations, setRecommendations] = useState([]);
+    const [cast, setCast] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const { id } = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -19,12 +20,16 @@ function MovieDetails() {
                 setMovie(movieDetails);
 
                 if (movieDetails) {
-                    const recommendedMovies = await fetchMovieRecommendations(id);
+                    const [recommendedMovies, movieCast] = await Promise.all([
+                        fetchMovieRecommendations(id),
+                        fetchMovieCast(id)
+                    ]);
                     setRecommendations(recommendedMovies);
+                    setCast(movieCast.cast);
                 }
             } catch (err) {
-                console.error("Error fetching movie details or recommendations:", err);
-                setError("Error fetching details or recommendations. Please try again.");
+                console.error("Error fetching movie details, cast, or recommendations:", err);
+                setError("Error fetching details, cast, or recommendations. Please try again.");
             } finally {
                 setLoading(false);
             }
@@ -47,16 +52,18 @@ function MovieDetails() {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="detail-page">
                 <section className="detail-page-top">
-                    <MovieCard movie={movie} />
+                    <MovieCard movie={movie}/>
                     <div className="movie-info">
                         <div className="movie-name-container">
                             <h2 className="movie-name">{movie.title}</h2>
                             <p className="movie-year">{new Date(movie.release_date).getFullYear()}</p>
                         </div>
-                        <p className="movie-cast">Cast: {/* Add movie cast details here */}</p>
+                        <p className="movie-cast">
+                            Cast: {cast.slice(0, 4).map(actor => actor.name).join(', ') || 'No cast information available'}
+                        </p>
                         <p className="movie-plot">{movie.overview}</p>
                     </div>
                 </section>
@@ -64,8 +71,8 @@ function MovieDetails() {
                     <h2 className="detail-discover">Discover</h2>
                     <div className="movie-cards">
                         {recommendations.length > 0 ? (
-                            recommendations.map((recMovie) => (
-                                <MovieCard key={recMovie.id} movie={recMovie} />
+                            recommendations.slice(0, 10).map((recMovie) => (
+                                <MovieCard key={recMovie.id} movie={recMovie}/>
                             ))
                         ) : (
                             <p>No recommendations available.</p>
@@ -78,4 +85,3 @@ function MovieDetails() {
 }
 
 export default MovieDetails;
-

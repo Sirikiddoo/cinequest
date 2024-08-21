@@ -35,6 +35,22 @@ export const fetchMovieDetails = async (id) => {
     }
 };
 
+// Fetch movie cast
+export const fetchMovieCast = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/movie/${id}/credits`, {
+            params: {
+                api_key: import.meta.env.VITE_API_KEY,
+                language: 'en-US',
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching cast for movie ${id}:`, error);
+        return null;
+    }
+};
+
 // Fetch movie recommendations
 export const fetchMovieRecommendations = async (id) => {
     try {
