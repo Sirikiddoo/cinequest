@@ -25,8 +25,8 @@ function App() {
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/sign-in"/>} />
                 <Route path="/library" element={<Library />} />
-                <Route path="/watchlist" element={<Watchlist />} />
-                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/watchlist" element={isAuth ? <Watchlist /> : <Navigate to="/sign-in"/>} />
+                <Route path="/favorites" element={isAuth ? <Favorites /> : <Navigate to="/sign-in"/>} />
                 <Route path="/movie/:id" element={<MovieDetails />} />
                 <Route path="/search-results" element={<SearchResults />} />
                 <Route path="*" element={<Error />} />
