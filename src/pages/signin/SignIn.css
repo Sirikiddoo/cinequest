@@ -85,16 +85,19 @@
     border: none;
 }
 
-.sign-in-text {
+.sign-up-text {
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 10px;
 }
 
 .text-left {
     padding-right: 10px;
+}
+
+.sign-up-link {
+    text-decoration: underline;
 }
 
 .home-button-container {

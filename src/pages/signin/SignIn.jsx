@@ -28,7 +28,7 @@ function SignIn() {
             login(result.data.accessToken);
 
         } catch(e) {
-            console.error(e);
+            console.error('Login failed', e);
             toggleError(true);
         }
     }
@@ -38,7 +38,11 @@ function SignIn() {
             <section className="sign-in-container">
                 <div className="container-text">
                     <h2 className="text-item-left">LOG IN</h2>
-                    <h2 className="text-item-right">SIGN UP</h2>
+                    <h2 className="text-item-right">
+                        <Link to="/sign-up">
+                            SIGN UP
+                        </Link>
+                        </h2>
                 </div>
                 <form onSubmit={handleSubmit} className="sign-in-form">
                     <div className="input-container">
@@ -67,9 +71,9 @@ function SignIn() {
                     </button>
                 </form>
                 {error && <p>Login failed. Please try again.</p>}
-                <div className="sign-in-text">
+                <div className="sign-up-text">
                     <p className="text-left">New to CineQuest?</p>
-                    <Link to="/sign-up">SIGN UP</Link>
+                    <Link className="sign-up-link" to="/sign-up">SIGN UP</Link>
                 </div>
                 <div className="home-button-container">
                     <Link to="/" className="home-button">Back to Homepage &#8594;</Link>

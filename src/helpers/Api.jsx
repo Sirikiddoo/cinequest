@@ -11,7 +11,6 @@ export const fetchPopularMovies = async () => {
                 language: 'en-US',
             }
         });
-        console.log('Popular movies data:', response.data.results);
         return response.data.results;
     } catch (error) {
         console.error('Error fetching popular movies:', error);

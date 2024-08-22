@@ -6,13 +6,16 @@ import MovieCard from "../../components/moviecard/MovieCard.jsx";
 import { fetchPopularMovies } from '../../helpers/Api.jsx';
 
 const Home = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        setIsLoading(true);
         const getPopularMovies = async () => {
             try {
                 const moviesData = await fetchPopularMovies();
                 setMovies(moviesData.slice(0, 5));
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching popular movies:', error);
             }
@@ -36,6 +39,7 @@ const Home = () => {
             </section>
             <section className="home-bottom">
                 <h2 className="home-category">Popular Films</h2>
+                {isLoading ? <p>Loading...</p> : null}
                 <div className="movie-cards">
                     {movies.map(movie => (
                         <MovieCard key={movie.id} movie={movie} />

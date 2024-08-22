@@ -28,8 +28,8 @@ function MovieDetails() {
                     setCast(movieCast.cast);
                 }
             } catch (err) {
-                console.error("Error fetching movie details, cast, or recommendations:", err);
-                setError("Error fetching details, cast, or recommendations. Please try again.");
+                console.error("Error fetching movie details:", err);
+                setError("Error fetching details. Please try again.");
             } finally {
                 setLoading(false);
             }

@@ -3,8 +3,8 @@ import './SignUp.css';
 import userIcon from '../../assets/images/circle-user.png';
 import emailIcon from '../../assets/images/envelope.png';
 import passwordIcon from '../../assets/images/lock.png';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 
 function SignUp() {
     const [username, setUsername] = useState('');
@@ -16,7 +16,6 @@ function SignUp() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log('Form submission started');
         toggleError(false);
         toggleLoading(true);
 
@@ -32,7 +31,6 @@ function SignUp() {
             toggleError(true);
         } finally {
             toggleLoading(false);
-            console.log('Form submission ended');
         }
     }
 
@@ -41,7 +39,11 @@ function SignUp() {
             <section className="sign-up-container">
                 <div className="container-text">
                     <h2 className="text-item-left">SIGN UP</h2>
-                    <h2 className="text-item-right">LOG IN</h2>
+                    <h2 className="text-item-right">
+                        <Link to="/sign-in">
+                            LOG IN
+                        </Link>
+                        </h2>
                 </div>
                 <form onSubmit={handleSubmit} className="sign-up-form">
                     <div className="input-container">
@@ -94,7 +96,7 @@ function SignUp() {
                 </form>
                 <div className="log-in-text">
                     <p className="text-left">Already a user?</p>
-                    <Link to="/sign-in">LOG IN</Link>
+                    <Link className="log-in-link" to="/sign-in">LOG IN</Link>
                 </div>
                 <div className="home-button-container">
                     <Link to="/" className="home-button">Back to Homepage &#8594;</Link>

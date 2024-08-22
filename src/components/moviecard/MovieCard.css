@@ -33,9 +33,11 @@
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .overlay-content {
+    pointer-events: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;

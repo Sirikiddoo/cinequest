@@ -49,23 +49,29 @@ const MovieCard = ({ movie }) => {
                     alt={movie.title}
                     className="movie-poster"
                 />
+            </Link>
                 <div className="overlay">
                     <div className="overlay-content">
                         <img
                             src={heart}
                             alt="Heart Icon"
                             className="icon"
-                            onClick={handleAddToFavorites}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddToFavorites(movie);
+                            }}
                         />
                         <img
                             src={eye}
                             alt="Eye Icon"
                             className="icon"
-                            onClick={handleAddToWatchlist}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddToWatchlist(movie);
+                            }}
                         />
                     </div>
                 </div>
-            </Link>
         </div>
     );
 };
