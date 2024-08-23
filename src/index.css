@@ -42,6 +42,14 @@ body {
   font-size: 16px;
 }
 
+.movie-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
 h2 {
   font-weight: normal;
   font-size: 1.75rem;

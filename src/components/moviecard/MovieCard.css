@@ -58,12 +58,12 @@
 /* Responsiveness */
 @media (max-width: 768px) {
     .movie-card {
-        max-width: 150px;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 480px) {
     .movie-card {
-        max-width: 120px;
+        max-width: 300px;
     }
 }

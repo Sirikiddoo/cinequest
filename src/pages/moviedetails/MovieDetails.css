@@ -54,7 +54,10 @@
 .detail-page-bottom {
     display: flex;
     flex-direction: column;
-    width: 1210px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1210px;
     margin: 0 auto;
 }
 
@@ -63,6 +66,14 @@
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
+}
+
+.movie-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-content: flex-start;
 }
 
 /* Responsiveness */

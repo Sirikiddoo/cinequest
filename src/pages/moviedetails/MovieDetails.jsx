@@ -51,37 +51,36 @@ function MovieDetails() {
     }
 
     return (
-        <div>
+        <div className="detail-page">
             <Header/>
-            <div className="detail-page">
-                <section className="detail-page-top">
-                    <MovieCard movie={movie}/>
-                    <div className="movie-info">
-                        <div className="movie-name-container">
-                            <h2 className="movie-name">{movie.title}</h2>
-                            <p className="movie-year">{new Date(movie.release_date).getFullYear()}</p>
-                        </div>
-                        <p className="movie-cast">
-                            Cast: {cast.slice(0, 4).map(actor => actor.name).join(', ') || 'No cast information available'}
-                        </p>
-                        <p className="movie-plot">{movie.overview}</p>
+            <section className="detail-page-top">
+                <MovieCard movie={movie}/>
+                <div className="movie-info">
+                    <div className="movie-name-container">
+                        <h2 className="movie-name">{movie.title}</h2>
+                        <p className="movie-year">{new Date(movie.release_date).getFullYear()}</p>
                     </div>
-                </section>
-                <section className="detail-page-bottom">
-                    <h2 className="detail-discover">Discover</h2>
-                    <div className="movie-cards">
-                        {recommendations.length > 0 ? (
-                            recommendations.slice(0, 10).map((recMovie) => (
-                                <MovieCard key={recMovie.id} movie={recMovie}/>
-                            ))
-                        ) : (
-                            <p>No recommendations available.</p>
-                        )}
-                    </div>
-                </section>
-            </div>
+                    <p className="movie-cast">
+                        Cast: {cast.slice(0, 4).map(actor => actor.name).join(', ') || 'No cast information available'}
+                    </p>
+                    <p className="movie-plot">{movie.overview}</p>
+                </div>
+            </section>
+            <section className="detail-page-bottom">
+                <h2 className="detail-discover">Discover</h2>
+                <div className="movie-cards">
+                    {recommendations.length > 0 ? (
+                        recommendations.slice(0, 10).map((recMovie) => (
+                            <MovieCard key={recMovie.id} movie={recMovie}/>
+                        ))
+                    ) : (
+                        <p>No recommendations available.</p>
+                    )}
+                </div>
+            </section>
         </div>
-    );
+)
+    ;
 }
 
 export default MovieDetails;

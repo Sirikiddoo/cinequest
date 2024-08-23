@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
 .dune-image {
@@ -44,28 +45,26 @@
 .home-bottom {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-top: 20px;
+    max-width: 1210px;
+    margin: 0 auto;
 }
 
 .home-category {
-    font-weight: bold;
-    padding: 20px;
+    padding: 20px 10px;
     font-size: 2rem;
-    margin-bottom: 20px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    font-weight: bold;
 }
 
 .movie-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    padding-bottom: 40px;
+    gap: 20px;
+    justify-content: space-between;
+    align-content: flex-start;
 }
 
 /* Responsiveness */
