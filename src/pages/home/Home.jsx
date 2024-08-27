@@ -10,18 +10,28 @@ const Home = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        const controller = new AbortController();
+        const { signal } = controller;
+
         setIsLoading(true);
         const getPopularMovies = async () => {
             try {
-                const moviesData = await fetchPopularMovies();
+                const moviesData = await fetchPopularMovies(signal);
                 setMovies(moviesData.slice(0, 5));
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error fetching popular movies:', error);
+                if (error.name !== 'AbortError') {
+                    console.error('Error fetching popular movies:', error);
+                    setIsLoading(false);
+                }
             }
         };
 
         getPopularMovies();
+
+        return () => {
+            controller.abort();
+        };
     }, []);
 
     return (

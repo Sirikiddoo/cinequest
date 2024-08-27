@@ -9,18 +9,28 @@ const Library = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        const controller = new AbortController();
+        const { signal } = controller;
+
         setIsLoading(true);
         const getPopularMovies = async () => {
             try {
-                const moviesData = await fetchPopularMovies();
+                const moviesData = await fetchPopularMovies(signal);
                 setMovies(moviesData);
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error fetching library:', error);
+                if (error.name !== 'AbortError') {
+                    console.error('Error fetching library:', error);
+                    setIsLoading(false);
+                }
             }
         };
 
         getPopularMovies();
+
+        return () => {
+            controller.abort();
+        };
     }, []);
 
     return (

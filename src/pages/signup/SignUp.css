@@ -42,7 +42,7 @@
     flex: 1;
     margin-top: 25px;
     margin-bottom: 5px;
-    gap: 50px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -115,6 +115,14 @@
     gap: 8px;
 }
 
+.error-message {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .sign-up-container {
@@ -168,5 +176,3 @@
         padding: 6px 12px;
     }
 }
-
-

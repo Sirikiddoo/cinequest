@@ -1,35 +1,40 @@
-import './SignIn.css'
-import emailIcon from '../../assets/images/envelope.png'
-import passwordIcon from '../../assets/images/lock.png'
-import React from "react";
+import './SignIn.css';
+import userIcon from '../../assets/images/circle-user.png';
+import passwordIcon from '../../assets/images/lock.png';
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import axios from "axios";
-
 
 function SignIn() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, toggleError] = useState(false);
-    const { login } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { login, authenticateUser } = useContext(AuthContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
-        toggleError(false);
+        setError('');
 
         try {
-            const result = await axios.post('http://localhost:3000/login', {
-                email: email,
-                password: password,
-            });
-            console.log(result.data);
+            const token = await authenticateUser({ username, password });
+            console.log("Token:", token);
 
-            login(result.data.accessToken);
+            if (token && typeof token === 'string') {
+                login(token);
+            } else {
+                console.error("Invalid token received");
+                setError('An unknown error occurred. Please try again.');
+            }
 
-        } catch(e) {
+        } catch (e) {
             console.error('Login failed', e);
-            toggleError(true);
+            if (e.message === 'Invalid username') {
+                setError('Username not found. Please check your username.');
+            } else if (e.message === 'Invalid password') {
+                setError('Incorrect password. Please try again.');
+            } else {
+                setError('Login failed. Please try again.');
+            }
         }
     }
 
@@ -42,20 +47,20 @@ function SignIn() {
                         <Link to="/sign-up">
                             SIGN UP
                         </Link>
-                        </h2>
+                    </h2>
                 </div>
                 <form onSubmit={handleSubmit} className="sign-in-form">
                     <div className="input-container">
-                        <img src={emailIcon} alt="Email Icon" className="input-icon"></img>
+                        <img src={userIcon} alt="User Icon" className="input-icon" />
                         <input
-                            type="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
                     <div className="input-container">
-                        <img src={passwordIcon} alt="Password Icon" className="input-icon"></img>
+                        <img src={passwordIcon} alt="Password Icon" className="input-icon" />
                         <input
                             type="password"
                             placeholder="Password"
@@ -70,7 +75,7 @@ function SignIn() {
                         Continue
                     </button>
                 </form>
-                {error && <p>Login failed. Please try again.</p>}
+                {error && <p className="error-message">{error}</p>}
                 <div className="sign-up-text">
                     <p className="text-left">New to CineQuest?</p>
                     <Link className="sign-up-link" to="/sign-up">SIGN UP</Link>

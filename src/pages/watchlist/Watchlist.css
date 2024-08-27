@@ -16,12 +16,11 @@
     margin-bottom: 1rem;
 }
 
-/* Movie card container styling */
-.movie-cards {
+.movie-cards-user {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Responsiveness */
@@ -32,7 +31,7 @@
         margin-bottom: 0.75rem;
     }
 
-    .movie-cards {
+    .movie-cards-user {
         gap: 15px;
     }
 }
@@ -44,7 +43,7 @@
         margin-bottom: 0.5rem;
     }
 
-    .movie-cards {
+    .movie-cards-user {
         gap: 10px;
     }
 }

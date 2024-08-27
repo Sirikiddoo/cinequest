@@ -20,7 +20,7 @@ function Favorites() {
             <section className="favorites">
                 <h2 className="favorites-title">Favorites</h2>
                 {isLoading ? <p>Loading...</p> : null}
-                <div className="movie-cards">
+                <div className="movie-cards-user">
                     {favoriteMovies.map(movie => (
                         <MovieCard key={movie.id} movie={movie} />
                     ))}

@@ -20,7 +20,7 @@ function Watchlist() {
             <section className="watchlist">
                 <h2 className="watchlist-title">Watchlist</h2>
                 {isLoading ? <p>Loading...</p> : null}
-                        <div className="movie-cards">
+                        <div className="movie-cards-user">
                             {watchlistMovies.map(movie => (
                                 <MovieCard key={movie.id} movie={movie} />
                             ))}
