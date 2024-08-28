@@ -13,43 +13,8 @@
     width: 100%;
     max-width: 1210px;
     margin: 0 auto;
-    padding: 10px;
     gap: 20px;
 }
-
-.movie-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.movie-name-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.movie-name {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.movie-year {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.movie-director {
-    margin-top: 10px;
-    font-size: 18px;
-}
-
-.movie-plot {
-    margin-top: 10px;
-    font-size: 14px;
-    max-width: 25rem;
-}
-
 
 .detail-page-bottom {
     display: flex;
@@ -68,48 +33,14 @@
     font-weight: bold;
 }
 
-.movie-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    align-content: flex-start;
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
-    .movie-name {
-        font-size: 2rem;
-    }
-
-    .movie-year {
-        font-size: 1rem;
-    }
-
-    .movie-director,
-    .movie-plot {
-        font-size: 1rem;
-    }
-
     .detail-discover {
         font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .movie-name {
-        font-size: 1.5rem;
-    }
-
-    .movie-year {
-        font-size: 0.875rem;
-    }
-
-    .movie-director,
-    .movie-plot {
-        font-size: 0.875rem;
-    }
-
     .detail-discover {
         font-size: 1.25rem;
     }

@@ -17,39 +17,6 @@
     margin-bottom: 1rem;
 }
 
-.movie-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    align-content: flex-start;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.pagination button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.pagination button:disabled {
-    background-color: #777;
-    cursor: not-allowed;
-}
-
-.pagination button:hover:not(:disabled) {
-    background-color: #555;
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
     .movie-cards {

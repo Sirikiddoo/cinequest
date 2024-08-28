@@ -55,6 +55,21 @@
     opacity: 1;
 }
 
+.message-popup {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .movie-card {

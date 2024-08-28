@@ -9,17 +9,17 @@
 .search-bar {
     width: 100%;
     padding: 10px 40px 10px 15px;
-    border: 1px solid #b9c0c9;
+    border: 1px solid #e5d0ff;
     background-color: transparent;
     border-radius: 20px;
     font-size: 16px;
-    color: #FFFFFF;
+    color: var(--color-fourth);
     outline: none;
     box-sizing: border-box;
 }
 
 .search-bar::placeholder {
-    color: #FFFFFF;
+    color: var(--color-fourth);
 }
 
 .search-button {

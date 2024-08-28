@@ -1,7 +1,7 @@
 import './SearchBar.css';
 import React, {useState} from 'react';
 import search from '../../assets/images/search.png';
-import axios from "axios";
+import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import {API_URL} from '../../constants/Constants.jsx';
 

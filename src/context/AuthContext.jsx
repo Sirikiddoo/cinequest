@@ -4,6 +4,7 @@ import {jwtDecode} from 'jwt-decode';
 import axios from 'axios';
 import {BACKEND_URL} from '../constants/Constants.jsx';
 
+/* Necessary backend headers */
 const authHeaders = {
     'Content-Type': 'application/json',
     'X-Api-Key': import.meta.env.VITE_BACKEND_KEY
@@ -11,6 +12,7 @@ const authHeaders = {
 
 export const AuthContext = createContext({});
 
+/* Context provider function */
 function AuthContextProvider({children}) {
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
@@ -44,6 +46,7 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
+    /* Log in function with token */
     function login(JWT) {
         if (typeof JWT !== 'string') {
             console.error("Invalid token: Token is not a string");
@@ -59,6 +62,7 @@ function AuthContextProvider({children}) {
         }
     }
 
+    /* Log out function */
     function logout() {
         localStorage.removeItem('authToken');
         toggleIsAuth({
@@ -71,6 +75,7 @@ function AuthContextProvider({children}) {
         navigate('/');
     }
 
+    /* Register user function */
     const registerUser = async (userData) => {
         try {
             const response = await axios.post(`${BACKEND_URL}/users`, userData, {headers: authHeaders});
@@ -81,6 +86,7 @@ function AuthContextProvider({children}) {
         }
     };
 
+    /* Authenticate user function */
     const authenticateUser = async (credentials) => {
         try {
             const response = await axios.post(`${BACKEND_URL}/users/authenticate`, credentials, {headers: authHeaders});
@@ -126,7 +132,7 @@ function AuthContextProvider({children}) {
         }
     }
 
-
+    /* Different functions to be passed through the context */
     const contextData = {
         ...isAuth,
         login,

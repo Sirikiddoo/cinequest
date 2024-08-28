@@ -1,5 +1,6 @@
 .header {
     background-color: var(--color-primary);
+    color: var(--color-fourth);
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -22,7 +23,6 @@
 }
 
 .nav-title {
-    color: var(--color-white);
     font-weight: bold;
     margin-right: 1rem;
     text-decoration: none;
@@ -41,7 +41,6 @@
 }
 
 .nav-item {
-    color: var(--color-white);
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
@@ -59,10 +58,10 @@
 .nav-button {
     background: none;
     border: none;
-    color: var(--color-white);
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
+    color: var(--color-fourth);
     cursor: pointer;
     padding: 0;
     margin: 0;

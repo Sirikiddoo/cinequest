@@ -108,7 +108,7 @@
 .home-button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: var(--color-white);
+    color: var(--color-fourth);
     border: none;
     text-decoration: none;
     cursor: pointer;
@@ -116,7 +116,7 @@
 }
 
 .error-message {
-    color: white;
+    color: var(--color-fourth);
     font-size: 0.9rem;
     text-align: center;
     margin-top: -15px;

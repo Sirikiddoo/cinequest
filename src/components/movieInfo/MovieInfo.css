@@ -1,0 +1,93 @@
+.movie-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.movie-info-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.movie-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.movie-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.movie-year {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.movie-cast {
+    font-size: 18px;
+}
+
+.movie-plot {
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 25rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .movie-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-info-details {
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .movie-name {
+        font-size: 1.5rem;
+    }
+
+    .movie-year {
+        font-size: 0.75rem;
+    }
+
+    .movie-cast,
+    .movie-plot {
+        font-size: 1rem;
+    }
+}
+
+    @media (max-width: 480px) {
+        .movie-info {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .movie-info-details {
+            margin-left: 0;
+            margin-top: 10px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .movie-name {
+            font-size: 1.5rem;
+        }
+
+        .movie-year {
+            font-size: 0.75rem;
+        }
+
+        .movie-cast,
+        .movie-plot {
+            font-size: 1rem;
+        }
+    }

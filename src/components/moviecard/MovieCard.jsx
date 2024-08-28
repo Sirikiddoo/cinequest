@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import './MovieCard.css';
 import {Link} from 'react-router-dom';
 import heart from '../../assets/images/heart.png';
 import eye from '../../assets/images/eye.png';
 import {getPosterPath} from '../../helpers/Api.jsx';
-import {AuthContext} from "../../context/AuthContext.jsx";
+import {AuthContext} from '../../context/AuthContext.jsx';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({movie}) => {
     const {user} = useContext(AuthContext);
 
     if (!movie) return null;
-
+    /* Add to favorites function */
     const handleAddToFavorites = () => {
         if (user) {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -25,7 +25,7 @@ const MovieCard = ({ movie }) => {
             alert('Please log in to add to favorites.');
         }
     };
-
+    /* Add to watchlist function */
     const handleAddToWatchlist = () => {
         if (user) {
             const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
@@ -50,28 +50,28 @@ const MovieCard = ({ movie }) => {
                     className="movie-poster"
                 />
             </Link>
-                <div className="overlay">
-                    <div className="overlay-content">
-                        <img
-                            src={heart}
-                            alt="Heart Icon"
-                            className="icon"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                handleAddToFavorites(movie);
-                            }}
-                        />
-                        <img
-                            src={eye}
-                            alt="Eye Icon"
-                            className="icon"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                handleAddToWatchlist(movie);
-                            }}
-                        />
-                    </div>
+            <div className="overlay">
+                <div className="overlay-content">
+                    <img
+                        src={heart}
+                        alt="Heart Icon"
+                        className="icon"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddToFavorites();
+                        }}
+                    />
+                    <img
+                        src={eye}
+                        alt="Eye Icon"
+                        className="icon"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddToWatchlist();
+                        }}
+                    />
                 </div>
+            </div>
         </div>
     );
 };

@@ -7,14 +7,16 @@ import emailIcon from '../../assets/images/envelope.png';
 import passwordIcon from '../../assets/images/lock.png';
 
 function SignUp() {
+    /* State for setting user data and registering */
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { registerUser } = useContext(AuthContext);
+    const {registerUser} = useContext(AuthContext);
 
+    /* Registering user function */
     async function handleSubmit(e) {
         e.preventDefault();
         setError('');
@@ -37,21 +39,26 @@ function SignUp() {
             email,
             password,
             info: 'testinfo',
-            authorities: [{ authority: 'USER' }]
+            authorities: [{authority: 'USER'}]
         };
 
         try {
-            console.log('Sending request with data:', userData);
             await registerUser(userData);
-            console.log('Registration successful');
-            navigate('/sign-in');
+            alert('Registration successful! Redirecting to login...');
+            setTimeout(() => navigate('/sign-in'), 2000);
         } catch (e) {
             console.error('Registration failed:', e.response ? e.response.data : e.message);
-            setError('This account already exists. Try a different email address.');
+
+            if (e.response && e.response.status === 409) {
+                setError('This email is already registered. Please use a different email.');
+            } else {
+                setError('An error occurred during registration. Please try again later.');
+            }
         } finally {
             setLoading(false);
         }
     }
+
 
     return (
         <div className="sign-up">
@@ -66,7 +73,7 @@ function SignUp() {
                 </div>
                 <form onSubmit={handleSubmit} className="sign-up-form">
                     <div className="input-container">
-                        <img src={userIcon} alt="User Icon" className="input-icon" />
+                        <img src={userIcon} alt="User Icon" className="input-icon"/>
                         <input
                             type="text"
                             placeholder="Username (min 4 characters)"
@@ -76,7 +83,7 @@ function SignUp() {
                         />
                     </div>
                     <div className="input-container">
-                        <img src={emailIcon} alt="Email Icon" className="input-icon" />
+                        <img src={emailIcon} alt="Email Icon" className="input-icon"/>
                         <input
                             type="email"
                             placeholder="Email"
@@ -86,7 +93,7 @@ function SignUp() {
                         />
                     </div>
                     <div className="input-container">
-                        <img src={passwordIcon} alt="Password Icon" className="input-icon" />
+                        <img src={passwordIcon} alt="Password Icon" className="input-icon"/>
                         <input
                             type="password"
                             placeholder="Password (min 8 characters)"

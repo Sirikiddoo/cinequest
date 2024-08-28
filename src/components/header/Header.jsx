@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {NavLink} from 'react-router-dom';
 import './Header.css';
-import SearchBar from "../searchbar/SearchBar.jsx";
-import { AuthContext } from '../../context/AuthContext';
+import SearchBar from '../searchBar/SearchBar.jsx';
+import {AuthContext} from '../../context/AuthContext';
 
-function Header({ onSearch }) {
-    const { user, logout } = useContext(AuthContext);
+function Header({onSearch}) {
+    const {user, logout} = useContext(AuthContext);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    /* Responsive Hamburger Menu */
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
@@ -16,20 +17,17 @@ function Header({ onSearch }) {
         <header className="header">
             <nav className="navbar">
                 <NavLink to="/" className="nav-title">CineQuest</NavLink>
-
                 <SearchBar onSearch={onSearch}/>
-
                 <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </div>
-
-
                 <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
                     {user ? (
                         <>
-                            <NavLink to="/profile" className="nav-item">
+                            <NavLink to="/profile"
+                                     className={({isActive}) => isActive ? 'nav-item active-nav-item' : 'nav-item'}>
                                 Hello, {user.username}
                             </NavLink>
                             <button onClick={logout} className="nav-item nav-button">LOG OUT</button>

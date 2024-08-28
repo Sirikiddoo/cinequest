@@ -1,22 +1,24 @@
 import './SignIn.css';
 import userIcon from '../../assets/images/circle-user.png';
 import passwordIcon from '../../assets/images/lock.png';
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 function SignIn() {
+    /* State for setting user data and authentication */
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { login, authenticateUser } = useContext(AuthContext);
+    const {login, authenticateUser} = useContext(AuthContext);
 
+    /* User authentication function */
     async function handleSubmit(e) {
         e.preventDefault();
         setError('');
 
         try {
-            const token = await authenticateUser({ username, password });
+            const token = await authenticateUser({username, password});
             console.log("Token:", token);
 
             if (token && typeof token === 'string') {
@@ -51,7 +53,7 @@ function SignIn() {
                 </div>
                 <form onSubmit={handleSubmit} className="sign-in-form">
                     <div className="input-container">
-                        <img src={userIcon} alt="User Icon" className="input-icon" />
+                        <img src={userIcon} alt="User Icon" className="input-icon"/>
                         <input
                             type="text"
                             placeholder="Username"
@@ -60,7 +62,7 @@ function SignIn() {
                         />
                     </div>
                     <div className="input-container">
-                        <img src={passwordIcon} alt="Password Icon" className="input-icon" />
+                        <img src={passwordIcon} alt="Password Icon" className="input-icon"/>
                         <input
                             type="password"
                             placeholder="Password"

@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { API_URL, IMAGE_PATH } from '../constants/Constants.jsx';
+import {API_URL, IMAGE_PATH} from '../constants/Constants.jsx';
 
 
-// Fetch popular movies
+/* Fetch popular movies */
 export const fetchPopularMovies = async () => {
     try {
         const response = await axios.get(`${API_URL}/movie/popular`, {
@@ -18,7 +18,7 @@ export const fetchPopularMovies = async () => {
     }
 };
 
-// Fetch movie details
+/* Fetch movie details */
 export const fetchMovieDetails = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}`, {
@@ -34,7 +34,7 @@ export const fetchMovieDetails = async (id) => {
     }
 };
 
-// Fetch movie cast
+/* Fetch movie cast */
 export const fetchMovieCast = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}/credits`, {
@@ -50,7 +50,7 @@ export const fetchMovieCast = async (id) => {
     }
 };
 
-// Fetch movie recommendations
+/* Fetch movie recommendations */
 export const fetchMovieRecommendations = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/movie/${id}/recommendations`, {
@@ -66,7 +66,7 @@ export const fetchMovieRecommendations = async (id) => {
     }
 };
 
-// Get poster path
+/* Get poster path */
 export const getPosterPath = (path) => {
     return `${IMAGE_PATH}${path}`;
 };

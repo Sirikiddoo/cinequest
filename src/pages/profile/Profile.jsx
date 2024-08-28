@@ -1,12 +1,12 @@
 import './Profile.css';
-import Header from "../../components/header/Header.jsx";
-import React, {useContext} from 'react';
-import heart from "../../assets/images/heart.png";
-import eye from "../../assets/images/eye.png";
-import userIcon from "../../assets/images/circle-user.png";
-import emailIcon from "../../assets/images/envelope.png";
-import {AuthContext} from '../../context/AuthContext';
-import {Link} from "react-router-dom";
+import Header from '../../components/header/Header.jsx';
+import React, { useContext } from 'react';
+import heart from '../../assets/images/heart.png';
+import eye from '../../assets/images/eye.png';
+import userIcon from '../../assets/images/circle-user.png';
+import emailIcon from '../../assets/images/envelope.png';
+import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 function Profile() {
     const {user} = useContext(AuthContext);
