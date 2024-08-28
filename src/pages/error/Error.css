@@ -44,7 +44,7 @@
     font-size: 14px;
     font-weight: bold;
     background-color: var(--color-secondary);
-    color: var(--color-white);
+    color: var(--color-fourth);
     border-radius: 30px;
     margin-top: 1rem;
     box-shadow: 0 4px 15px -5px var(--color-primary);

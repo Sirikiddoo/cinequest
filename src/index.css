@@ -24,6 +24,7 @@
   --color-primary: #200926;
   --color-secondary: #65558F;
   --color-tertiary: #331A2D;
+  --color-fourth: #e5d0ff;
 }
 
 /* CSS Reset */
@@ -37,9 +38,17 @@
 body {
   font-family: DMSans, sans-serif;
   background-color: var(--color-tertiary);
-  color: lavender;
+  color: var(--color-fourth);
   line-height: 1.6;
   font-size: 16px;
+}
+
+.movie-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-content: flex-start;
 }
 
 h2 {

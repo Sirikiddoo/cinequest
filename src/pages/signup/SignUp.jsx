@@ -1,59 +1,84 @@
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import './SignUp.css';
 import userIcon from '../../assets/images/circle-user.png';
 import emailIcon from '../../assets/images/envelope.png';
 import passwordIcon from '../../assets/images/lock.png';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 
 function SignUp() {
+    /* State for setting user data and registering */
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, toggleError] = useState(false);
-    const [loading, toggleLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const {registerUser} = useContext(AuthContext);
 
+    /* Registering user function */
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log('Form submission started');
-        toggleError(false);
-        toggleLoading(true);
+        setError('');
+        setLoading(true);
+
+        if (username.length < 4) {
+            setError('Username must be at least 4 characters long.');
+            setLoading(false);
+            return;
+        }
+
+        if (password.length < 8) {
+            setError('Password must be at least 8 characters long.');
+            setLoading(false);
+            return;
+        }
+
+        const userData = {
+            username,
+            email,
+            password,
+            info: 'testinfo',
+            authorities: [{authority: 'USER'}]
+        };
 
         try {
-            await axios.post('http://localhost:3000/register', {
-                email: email,
-                password: password,
-                username: username,
-            });
-            navigate('/sign-in');
+            await registerUser(userData);
+            alert('Registration successful! Redirecting to login...');
+            setTimeout(() => navigate('/sign-in'), 2000);
         } catch (e) {
-            console.error('Registration failed', e);
-            toggleError(true);
+            console.error('Registration failed:', e.response ? e.response.data : e.message);
+
+            if (e.response && e.response.status === 409) {
+                setError('This email is already registered. Please use a different email.');
+            } else {
+                setError('An error occurred during registration. Please try again later.');
+            }
         } finally {
-            toggleLoading(false);
-            console.log('Form submission ended');
+            setLoading(false);
         }
     }
+
 
     return (
         <div className="sign-up">
             <section className="sign-up-container">
                 <div className="container-text">
                     <h2 className="text-item-left">SIGN UP</h2>
-                    <h2 className="text-item-right">LOG IN</h2>
+                    <h2 className="text-item-right">
+                        <Link to="/sign-in">
+                            LOG IN
+                        </Link>
+                    </h2>
                 </div>
                 <form onSubmit={handleSubmit} className="sign-up-form">
                     <div className="input-container">
                         <img src={userIcon} alt="User Icon" className="input-icon"/>
                         <input
                             type="text"
-                            placeholder="Username"
+                            placeholder="Username (min 4 characters)"
                             value={username}
-                            onChange={(e) => {
-                                setUsername(e.target.value);
-                                console.log('Username updated:', e.target.value);
-                            }}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
                     </div>
@@ -63,10 +88,7 @@ function SignUp() {
                             type="email"
                             placeholder="Email"
                             value={email}
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                                console.log('Email updated:', e.target.value);
-                            }}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
@@ -74,16 +96,13 @@ function SignUp() {
                         <img src={passwordIcon} alt="Password Icon" className="input-icon"/>
                         <input
                             type="password"
-                            placeholder="Password"
+                            placeholder="Password (min 8 characters)"
                             value={password}
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                                console.log('Password updated:', e.target.value);
-                            }}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                     </div>
-                    {error && <p>This account already exists. Try a different email address.</p>}
+                    {error && <p className="error-message">{error}</p>}
                     <button
                         type="submit"
                         className="form-button"
@@ -94,7 +113,7 @@ function SignUp() {
                 </form>
                 <div className="log-in-text">
                     <p className="text-left">Already a user?</p>
-                    <Link to="/sign-in">LOG IN</Link>
+                    <Link className="log-in-link" to="/sign-in">LOG IN</Link>
                 </div>
                 <div className="home-button-container">
                     <Link to="/" className="home-button">Back to Homepage &#8594;</Link>

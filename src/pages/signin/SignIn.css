@@ -40,9 +40,9 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 5px;
-    gap: 50px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -79,22 +79,33 @@
     font-size: 20px;
     align-self: center;
     background-color: var(--color-secondary);
-    color: var(--color-white);
+    color: var(--color-fourth);
     border-radius: 30px;
-    margin-top: 20px;
+    margin-top: 10px;
     border: none;
 }
 
-.sign-in-text {
+.error-message {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.sign-up-text {
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 10px;
 }
 
 .text-left {
     padding-right: 10px;
+}
+
+.sign-up-link {
+    text-decoration: underline;
 }
 
 .home-button-container {
@@ -105,7 +116,7 @@
 .home-button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: var(--color-white);
+    color: white;
     border: none;
     text-decoration: none;
     cursor: pointer;
@@ -165,4 +176,3 @@
         padding: 6px 12px;
     }
 }
-

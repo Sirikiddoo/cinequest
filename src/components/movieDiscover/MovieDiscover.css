@@ -1,0 +1,14 @@
+.movie-cards-discover {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .movie-cards-discover {
+        justify-content: center;
+    }
+}

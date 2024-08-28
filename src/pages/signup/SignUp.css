@@ -42,7 +42,7 @@
     flex: 1;
     margin-top: 25px;
     margin-bottom: 5px;
-    gap: 50px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -90,11 +90,14 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 10px;
 }
 
 .text-left {
     padding-right: 10px;
+}
+
+.log-in-link {
+    text-decoration: underline;
 }
 
 .home-button-container {
@@ -105,11 +108,19 @@
 .home-button {
     padding: 10px 20px;
     font-size: 1rem;
-    color: var(--color-white);
+    color: var(--color-fourth);
     border: none;
     text-decoration: none;
     cursor: pointer;
     gap: 8px;
+}
+
+.error-message {
+    color: var(--color-fourth);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 20px;
 }
 
 /* Responsiveness */
@@ -165,5 +176,3 @@
         padding: 6px 12px;
     }
 }
-
-

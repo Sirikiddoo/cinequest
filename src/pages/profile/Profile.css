@@ -1,4 +1,3 @@
-/* Profile.css */
 .profile {
     display: flex;
     flex-direction: column;
@@ -51,7 +50,7 @@
     border-radius: 30px;
     margin-bottom: 30px;
     background-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: white;
     padding: 0 40px;
     box-sizing: border-box;
     position: relative;
@@ -94,6 +93,7 @@
 
 .user-watchlist h3, .user-faves h3 {
     margin-bottom: 10px;
+    color: white;
 }
 
 .icon {
