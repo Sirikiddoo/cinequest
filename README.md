@@ -29,7 +29,7 @@ In the project directory, you can run:
 
 Installs the npm package necessary for the application to run.
 
-- npm start dev
+- npm run dev
 
 Runs the app in the development mode.
 
