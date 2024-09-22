@@ -2,14 +2,22 @@
 
 ## Introduction
 
-Welcome to the Film Discovery web application CineQuest!
-This web application uses API data from the TMDB API to provide the user with the most popular films of the moment, the ability to search films they know and to see detailed information about these films. Each film's detail page includes a Discover section, showcasing personalized recommendations to help users find new and interesting movies to watch. Additionally, users can create an account, and once logged in, they can build a watchlist of films they plan to watch or compile a list of their favorite movies. 
+Welcome to CineQuest, a film discovery web application! CineQuest uses data from the TMDB API to provide users with a list of trending films, allow them to search for specific titles, and view detailed information about those films. Each film's detail page includes a Discover section that offers personalized recommendations, helping users discover new and interesting movies. Additionally, users can create an account to manage their watchlist of movies they plan to watch, as well as a favorites list.
 
-The application starts on the homepage where the user can search for a film in the search bar or go to another page, using the navigation bar. Scrolling down on the homepage there is a short overview of some of the most popular films at the moment. The library page also shows the most popular films but more of them. Then there is the possibility to see a film's detailed information by clicking on a film's movie poster. The detail page of a film also shows Discover mode where an overview of the best similar films is shown to the user, creating the possibility of discovering new and interesting films to watch. A user can create an account by signing up and then logging in to be able to see their profile page and to be able to add films to their watchlist or favorites list by clicking on the icons on the film's movieposter icons. 
+The application starts on the homepage, where users can search for a movie via the search bar or navigate to other sections using the navigation bar. Scrolling down, users will see an overview of some of the most popular films at the moment. The Library page also displays popular films, but with a larger selection. By clicking on a movie poster, users can access detailed information about that film. The Discover Mode on the movie detail page showcases similar films, enabling users to explore new recommendations.
+
+Once users create an account and log in, they can access their profile page and add movies to their watchlist or favorites list by clicking on the respective icons on the movie posters. 
 
 ## Home page
 
  <img width="1440" alt="Home page CineQuest" src="https://github.com/user-attachments/assets/679d8fac-fd67-450d-bfb0-1059cfb52f86">
+
+## Features
+- Search for movies using the search bar.
+- View the most popular movies on the homepage and the library page.
+- Explore detailed information and personalized recommendations on each movie's detail page.
+- Sign up and log in to access your profile.
+- Add movies to a watchlist or favorites list after logging in.
 
 ## API Keys
 
@@ -21,25 +29,23 @@ API Backend Key: cinequest:EC6fq6TGydzYniuieNpz
 
 ## Installation
 
-Opening the application works like this:
+To install and run the application, follow these steps:
 
-In the project directory, you can run:
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run the following commands:
 
-- npm install
+npm install
 
-Installs the npm package necessary for the application to run.
+This will install all necessary dependencies for the application.
 
-- npm run dev
+npm run dev
 
-Runs the app in the development mode.
-
-Open http://localhost:5174 to view it in the browser.
+This command will start the app in development mode. Open http://localhost:5174 in your browser to view it.
 
 ## Account data
 
-To see the sign up and log in function there is a test account that can be used. 
-
-Use the following account data:
+To test the sign-up and log-in functionality, you can use the following credentials:
 
 - Username: hendrik
 - Email: hendrik@gmail.com
@@ -48,9 +54,9 @@ Use the following account data:
 ## NPM Packages
 
 Other NPM commands to install for the use of this application are:
-- npm axios
-- npm jwt-decode
-- npm react-router-dom
-- npm react-dom
+- npm install axios
+- npm install jwt-decode
+- npm install react-router-dom
+- npm install react-dom
 
 
